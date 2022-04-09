@@ -1,0 +1,301 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://nave.tscn" type="PackedScene" id=1]
+[ext_resource path="res://numeros.tres" type="DynamicFont" id=2]
+[ext_resource path="res://mapa.gd" type="Script" id=3]
+[ext_resource path="res://botiquin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://nave_enemiga.tscn" type="PackedScene" id=5]
+[ext_resource path="res://meteorito.tscn" type="PackedScene" id=6]
+[ext_resource path="res://peakpx.jpg" type="Texture" id=7]
+[ext_resource path="res://+5.png" type="Texture" id=8]
+[ext_resource path="res://bala.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.90767, 311.157 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "+5"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 168, 17 ), Vector2( 217, 17 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 2.46229 ),
+"update": 0,
+"values": [ 0.0, 56.391 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 168, 17 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 63.4049, 10 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0.352941 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "color_rojo"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0.352941 ), Color( 1, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.568627, 1, 0, 0.352941 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "color_verde"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.568627, 1, 0, 0.352941 ), Color( 0.568627, 1, 0, 0 ) ]
+}
+
+[node name="mapa" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="nave" parent="." instance=ExtResource( 1 )]
+position = Vector2( 201.126, 494.89 )
+scale = Vector2( 5, 5 )
+
+[node name="timer_enemigos" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2( -9.21122, 300.685 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2( 408.951, 301.157 )
+shape = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="tiempo" type="Label" parent="CanvasLayer" groups=["tiempo"]]
+anchor_left = 0.260376
+anchor_top = -0.008
+anchor_right = 0.355
+anchor_bottom = 0.103513
+margin_left = 71.8701
+margin_top = 15.4776
+margin_right = 66.0205
+margin_bottom = -17.4301
+rect_scale = Vector2( 0.848875, 0.848875 )
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="enemigoBarrera_label" type="Label" parent="CanvasLayer" groups=["barrera"]]
+margin_left = -55.3987
+margin_top = 101.938
+margin_right = -47.3987
+margin_bottom = 115.938
+text = "0"
+
+[node name="barra_vida_label" type="Label" parent="CanvasLayer" groups=["barra_vida_señal"]]
+margin_left = -61.0
+margin_top = 37.0
+margin_right = -53.0
+margin_bottom = 51.0
+text = "0"
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 168, 17 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 8 )
+
+[node name="mas_cinco_animacion" type="AnimationPlayer" parent="CanvasLayer"]
+anims/+5 = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[node name="tiempo_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="enemigo_barrera" type="Area2D" parent="."]
+position = Vector2( -1.3349, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemigo_barrera"]
+position = Vector2( 199.979, 595.943 )
+shape = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="enemigo_barrera"]
+margin_left = 137.0
+margin_top = 586.0
+margin_right = 263.0
+margin_bottom = 606.0
+
+[node name="Color_fondo" type="CanvasLayer" parent="."]
+
+[node name="Color_rojo" type="ColorRect" parent="Color_fondo"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 0, 0, 0.352941 )
+
+[node name="colorRojo_animacion" type="AnimationPlayer" parent="Color_fondo/Color_rojo"]
+anims/RESET = SubResource( 3 )
+anims/color_rojo = SubResource( 4 )
+
+[node name="color_verde" type="ColorRect" parent="Color_fondo"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.568627, 1, 0, 0.352941 )
+
+[node name="ColorVerde_animacion" type="AnimationPlayer" parent="Color_fondo/color_verde"]
+anims/RESET = SubResource( 5 )
+anims/color_verde = SubResource( 6 )
+
+[node name="botiquien_timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[node name="botiquin" parent="." instance=ExtResource( 4 )]
+position = Vector2( 482.867, 0 )
+
+[node name="nave_enemiga" parent="." instance=ExtResource( 5 )]
+position = Vector2( 539.716, 0 )
+
+[node name="restar_timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+follow_viewport_enable = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 0, 500 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 208.129, 300.76 )
+scale = Vector2( 0.288965, 0.202046 )
+texture = ExtResource( 7 )
+
+[node name="timer_meteorito" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="meteorito" parent="." instance=ExtResource( 6 )]
+position = Vector2( 602, 0 )
+
+[node name="bala" parent="." instance=ExtResource( 9 )]
+position = Vector2( 650, 0 )
+
+[connection signal="timeout" from="timer_enemigos" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="tiempo_timer" to="." method="_on_tiempo_timer_timeout"]
+[connection signal="area_entered" from="enemigo_barrera" to="." method="_on_enemigo_barrera_area_entered"]
+[connection signal="timeout" from="botiquien_timer" to="." method="_on_botiquien_timer_timeout"]
+[connection signal="timeout" from="restar_timer" to="." method="_on_restar_timer_timeout"]
+[connection signal="timeout" from="timer_meteorito" to="." method="_on_timer_meteorito_timeout"]

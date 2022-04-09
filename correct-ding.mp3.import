@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/correct-ding.mp3-cfb0dd6ac692ad9fa291429ec9f47e52.mp3str"
+
+[deps]
+
+source_file="res://correct-ding.mp3"
+dest_files=[ "res://.import/correct-ding.mp3-cfb0dd6ac692ad9fa291429ec9f47e52.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://bala.png" type="Texture" id=1]
+[ext_resource path="res://bala_scrit.gd" type="Script" id=2]
+[ext_resource path="res://bala_particulas.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.352 )
+colors = PoolColorArray( 1, 0.662109, 0, 1, 1, 1, 1, 0 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 0.515431, 3.52488 )
+
+[node name="bala" type="Node2D"]
+scale = Vector2( 5, 3 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="KinematicBody2D"]
+scale = Vector2( 0.232386, 0.232386 )
+amount = 15
+lifetime = 0.1
+local_coords = false
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+gravity = Vector2( 0, 10 )
+angle = -690.2
+angle_random = 0.26
+scale_amount = 0.1
+color_ramp = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 0, 1.19209e-07 )
+scale = Vector2( 0.275, 0.916667 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4, 8 )
+
+[node name="bala_colicion" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( -0.0304255, 0.0370054 )
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="KinematicBody2D" groups=["bala_señal"]]
+
+[node name="bala_colicion2" type="CollisionShape2D" parent="KinematicBody2D/Area2D"]
+position = Vector2( -0.0304255, 0.0370054 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="KinematicBody2D/Area2D" to="KinematicBody2D" method="_on_Area2D_area_entered"]

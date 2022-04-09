@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objetos.png" type="Texture" id=1]
+[ext_resource path="res://nave_enemiga.gd" type="Script" id=2]
+[ext_resource path="res://particula_fuego.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.2, 0.795455, 0.936 )
+colors = PoolColorArray( 0.160784, 0.14902, 0, 0, 1, 0.943359, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=4]
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 0.15039 )
+
+[node name="nave_enemiga" type="Node2D"]
+rotation = 3.14159
+script = ExtResource( 2 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2( 17, 20.7517 )
+rotation = 3.14159
+scale = Vector2( 2.00348, 0.800931 )
+amount = 25
+lifetime = 3.0
+fract_delta = false
+local_coords = false
+texture = ExtResource( 4 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+radial_accel = 81.33
+color = Color( 0.917647, 1, 0, 1 )
+color_ramp = SubResource( 3 )
+hue_variation_curve = SubResource( 4 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2( -16, 20.7515 )
+rotation = 3.14159
+scale = Vector2( 2.00348, 0.800931 )
+amount = 25
+lifetime = 3.0
+fract_delta = false
+local_coords = false
+texture = ExtResource( 4 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+radial_accel = 81.33
+color = Color( 0.917647, 1, 0, 1 )
+color_ramp = SubResource( 3 )
+hue_variation_curve = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 3.14159
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 2, 16, 14 )
+
+[node name="Area2D" type="Area2D" parent="." groups=["naveEnemiga_señal"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 5.08939e-05, -20.4512 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

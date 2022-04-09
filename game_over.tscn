@@ -1,0 +1,226 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://game_over.gd" type="Script" id=1]
+[ext_resource path="res://letras_pro.tres" type="DynamicFont" id=2]
+[ext_resource path="res://dbfbb505d98c8c759471854d87fa4155.png" type="Texture" id=3]
+[ext_resource path="res://perdiste.png" type="Texture" id=4]
+[ext_resource path="res://regresar.png" type="Texture" id=5]
+[ext_resource path="res://shaggy_utra_instinto.png" type="Texture" id=6]
+[ext_resource path="res://creador.png" type="Texture" id=7]
+[ext_resource path="res://peakpx.jpg" type="Texture" id=8]
+[ext_resource path="res://contraseña_correcta.png" type="Texture" id=9]
+[ext_resource path="res://incontraseña_correcta.png" type="Texture" id=10]
+[ext_resource path="res://correct-ding.mp3" type="AudioStream" id=11]
+[ext_resource path="res://incorrect-cbt-sound.mp3" type="AudioStream" id=12]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "clave_correcta"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "clave_mala"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "rojo_perdistes"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 0.00328476 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0.14902 ) ]
+}
+
+[node name="game_over" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 0, 0, 0 )
+
+[node name="perdistes_label" type="Sprite" parent="."]
+position = Vector2( 200, 120 )
+scale = Vector2( 8, 8 )
+texture = ExtResource( 4 )
+
+[node name="shaggy_label" type="Sprite" parent="."]
+visible = false
+position = Vector2( 200, 96 )
+scale = Vector2( 2.8, 2.8 )
+texture = ExtResource( 6 )
+
+[node name="shaggy_foto" type="Sprite" parent="."]
+visible = false
+position = Vector2( 210.905, 280.316 )
+texture = ExtResource( 3 )
+
+[node name="creador_label" type="Sprite" parent="."]
+visible = false
+position = Vector2( 209, 142 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+
+[node name="Regresar_menu" type="Button" parent="."]
+anchor_left = 0.124
+anchor_top = 0.766
+anchor_right = 0.874
+anchor_bottom = 0.933
+margin_left = 366.4
+margin_top = 72.4001
+margin_right = 126.4
+margin_bottom = -7.79993
+rect_scale = Vector2( 5, 5 )
+rect_pivot_offset = Vector2( 91.5907, 18.0597 )
+icon = ExtResource( 5 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="escribe_5Letras" type="LineEdit" parent="."]
+anchor_left = 0.092
+anchor_top = 0.427
+anchor_right = 0.907
+anchor_bottom = 0.573
+margin_left = 0.199448
+margin_top = -0.200012
+margin_right = 0.199432
+margin_bottom = 0.199982
+rect_pivot_offset = Vector2( 167.436, 43.3519 )
+mouse_filter = 1
+size_flags_horizontal = 0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+max_length = 6
+virtual_keyboard_enabled = false
+clear_button_enabled = true
+placeholder_text = "escribe"
+placeholder_alpha = 0.5
+caret_blink_speed = 1.99
+
+[node name="Correpto" type="Sprite" parent="."]
+visible = false
+position = Vector2( 200, 288 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Correpto"]
+playback_speed = 1.5
+anims/RESET = SubResource( 2 )
+anims/clave_correcta = SubResource( 1 )
+
+[node name="Incorrepta" type="Sprite" parent="."]
+visible = false
+position = Vector2( 200, 296 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Incorrepta"]
+playback_speed = 1.5
+anims/RESET = SubResource( 3 )
+anims/clave_mala = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "rojo_perdistes"
+anims/RESET = SubResource( 5 )
+anims/rojo_perdistes = SubResource( 6 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+follow_viewport_enable = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 0, 500 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 200.037, 300.76 )
+scale = Vector2( 0.277726, 0.202046 )
+texture = ExtResource( 8 )
+
+[node name="sonidos" type="Node" parent="."]
+
+[node name="correcto" type="AudioStreamPlayer" parent="sonidos"]
+stream = ExtResource( 11 )
+
+[node name="incorrecto" type="AudioStreamPlayer" parent="sonidos"]
+stream = ExtResource( 12 )
+
+[connection signal="pressed" from="Regresar_menu" to="." method="_on_Regresar_menu_pressed"]
+[connection signal="text_entered" from="escribe_5Letras" to="." method="_on_escribe_5Letras_text_entered"]
